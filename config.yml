@@ -1,0 +1,5 @@
+openai_key: "sk-..."
+serpapi_key: "..."
+amazon_id: "your-tag-20"
+adsense_code: "<script>...</script>"
+article_per_run: 5

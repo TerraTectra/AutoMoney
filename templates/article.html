@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ title }}">
+    {{ adsense_code|safe }}
+</head>
+<body>
+    <article>
+        <h1>{{ title }}</h1>
+        <p><em>{{ date }}</em></p>
+        <div>{{ content|safe }}</div>
+        <div>
+            <p>Рекомендуемая книга по теме: <a href="https://www.amazon.com/dp/{{ partner_asin }}?tag={{ amazon_id }}">Купить на Amazon</a></p>
+        </div>
+    </article>
+    {{ adsense_code|safe }}
+</body>
+</html>
