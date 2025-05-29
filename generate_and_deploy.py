@@ -18,6 +18,25 @@ def fetch_keywords():
 # Генерация статей через локальную LLM (ollama), если доступна
 
 def generate_article(keyword):
+    """
+    Генерирует SEO-статью по ключу через Ollama (mistral:7b-instruct),
+    если Ollama недоступен — возвращает заглушку.
+    """
+    try:
+        import subprocess
+        prompt = f"Напиши SEO-статью на русском языке по теме: '{keyword}'. Статья должна быть уникальной, структурированной, с подзаголовками и списками."
+        print(f"[LOG] Попытка генерации статьи через Ollama: {keyword}")
+        result = subprocess.run(
+            ["ollama", "run", "mistral:7b-instruct", prompt],
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            print(f"[LOG] Статья успешно сгенерирована через Ollama по ключу: {keyword}")
+            return result.stdout.strip()
+        else:
+            print(f"[LOG] Ollama вернул ошибку или пустой результат по ключу: {keyword}")
+    except Exception as e:
+        print(f"[LOG] Ollama недоступен или произошла ошибка: {e}")
     print(f"[LOG] Используется заглушка для статьи по ключу: {keyword}")
     return f"# {keyword}\n\n(Тут будет сгенерированная статья. Настройте Ollama для реального текста.)"
 
