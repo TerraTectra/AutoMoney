@@ -94,6 +94,35 @@ def main():
         except Exception as e:
             print(f"[LOG] Ошибка при обработке {md_file}: {e}")
 
+    # Генерация index.html
+    try:
+        index_template = env.get_template('index.html')
+        articles = []
+        for md_file in glob('content/*.md'):
+            with open(md_file, encoding='utf-8') as f:
+                md = f.read()
+            title = extract_title(md)
+            slug = slugify(title)
+            html_file = f'{slug}.html'
+            # Получаем дату из файла или используем сегодняшнюю
+            date = today()
+            try:
+                stat = os.stat(md_file)
+                date = datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d')
+            except Exception:
+                pass
+            articles.append({
+                'title': title,
+                'url': html_file,
+                'date': date
+            })
+        articles = sorted(articles, key=lambda x: x['date'], reverse=True)
+        index_path = 'public/index.html'
+        with open(index_path, 'w', encoding='utf-8') as f:
+            f.write(index_template.render(articles=articles, year=datetime.now().year))
+        print(f"[LOG] Главная страница успешно создана: {index_path}")
+    except Exception as e:
+        print(f"[LOG] Ошибка при генерации index.html: {e}")
     print('[LOG] Генерация и публикация завершены.')
 
 if __name__ == '__main__':
