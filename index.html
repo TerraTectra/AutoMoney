@@ -7,70 +7,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Автоматически сгенерированные SEO-статьи по актуальным ключевым словам.">
     <style>
-        body { font-family: Arial, sans-serif; margin: 2em; background: #fafbfc; }
-        h1 { color: #2c3e50; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 1em 0; }
-        a { color: #007acc; text-decoration: none; font-size: 1.2em; }
-        a:hover { text-decoration: underline; }
-        .date { color: #888; font-size: 0.9em; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #fafbfc; }
+        h1 { color: #2c3e50; text-align: center; margin: 2em 0 1.5em 0; }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2em;
+            margin: 0 auto 2em auto;
+            max-width: 1100px;
+            padding: 0 1em;
+        }
+        .article-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            padding: 1.2em 1em 1em 1em;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+            border: 1px solid #f0f0f0;
+        }
+        .article-card:hover {
+            box-shadow: 0 4px 16px rgba(44,62,80,0.12);
+        }
+        .article-thumb {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.7em;
+            background: #eee;
+        }
+        .article-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-title {
+            color: #007acc;
+            text-decoration: none;
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 0.3em;
+        }
+        .article-title:hover {
+            text-decoration: underline;
+        }
+        .date {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+        }
+        .article-preview {
+            color: #444;
+            font-size: 1em;
+            margin: 0.2em 0 0 0;
+            line-height: 1.5;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.3em; }
+            .articles-grid { grid-template-columns: 1fr; padding: 0; }
+            .article-card { padding: 0.9em 0.5em; }
+        }
+        footer {
+            margin-top: 2em;
+            color: #bbb;
+            text-align: center;
+            font-size: 0.95em;
+            padding-bottom: 2em;
+        }
     </style>
 </head>
 <body>
     <h1>Авто-сайт: свежие SEO-статьи</h1>
-    <ul>
+    <div class="articles-grid">
     
-        <li>
-            <a href="агент-рассказал-о-возможном-уходе-капитана--краснодара--в-клуб-апл23-06.html">Агент рассказал о возможном уходе капитана «Краснодара» в клуб АПЛ23:06</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="агент-рассказал-о-возможном-уходе-капитана--краснодара--в-клуб-апл23-06--29-мая-2025.html" class="article-title">Агент рассказал о возможном уходе капитана «Краснодара» в клуб АПЛ23:06, 29 мая 2025</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">Агент рассказал о возможном уходе капитана «Краснодара» в клуб АПЛ23:06, 29 мая 2025 Title: Потенциальный переход капитана ФК «Краснодар» в клуб АПЛ: рассказ агента Введение В рекордные дни для футбол...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="в--вашингтоне--раскрыли-срок-окончания-карьеры-овечкиным-в-нхл20-20.html">В «Вашингтоне» раскрыли срок окончания карьеры Овечкиным в НХЛ20:20</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="в--вашингтоне--раскрыли-срок-окончания-карьеры-овечкиным-в-нхл20-20--29-мая-2025.html" class="article-title">В «Вашингтоне» раскрыли срок окончания карьеры Овечкиным в НХЛ20:20, 29 мая 2025</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">В «Вашингтоне» раскрыли срок окончания карьеры Овечкиным в НХЛ20:20, 29 мая 2025 📍 title: Срок окончания карьеры Овечкиным в НХЛ в 2025 году: анализ и перспективы 🗓️ 29 мая 2020 года, в городе Вашингт...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="известный-актер-избавится-от-роскошного-дома-в-сша19-54.html">Известный актер избавится от роскошного дома в США19:54</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="известный-актер-избавится-от-роскошного-дома-в-сша19-54--29-мая-2025.html" class="article-title">Известный актер избавится от роскошного дома в США19:54, 29 мая 2025</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">Известный актер избавится от роскошного дома в США19:54, 29 мая 2025 🏡 Известный актер продаёт роскошный дом в США Продажа роскошного дома — новость, которая привлечёт интерес поклонников известного а...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="интернет-и-сми.html">Интернет и СМИ</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="минтранс-подготовил-обновление-правил-перевозки-детей-в-автомобилях19-33--29-мая-2025.html" class="article-title">Минтранс подготовил обновление правил перевозки детей в автомобилях19:33, 29 мая 2025</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">Минтранс подготовил обновление правил перевозки детей в автомобилях19:33, 29 мая 2025 Title: Новое правило по перевозке детей в автомобилях: обновление Минтранса (29 мая 2025) Введение Внимание гражда...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="наука-и-техника.html">Наука и техника</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="организаторам-концерта-киркорова-пригрозили-крупным-штрафом20-21--29-мая-2025.html" class="article-title">Организаторам концерта Киркорова пригрозили крупным штрафом20:21, 29 мая 2025</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">Организаторам концерта Киркорова пригрозили крупным штрафом20:21, 29 мая 2025 🎤 Штрафы в размере 20 миллионов рублей: как концерты Григория Лепся привели к юридическим проблемам Установите связь между...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="нло--размером-с-автомобиль--появился-над-аэропортом-крупного-города-и-попал-на-видео20-52.html">НЛО «размером с автомобиль» появился над аэропортом крупного города и попал на видео20:52</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="правила-применения-рекомендательных-технологий.html" class="article-title">Правила применения рекомендательных технологий</a>
+                <span class="date">2025-05-30</span>
+                
+                <p class="article-preview">Правила применения рекомендательных технологий Title: Правила применения рекомендательных технологий: Успех в онлайн-бизнесе Введение Применение рекомендательных технологий стало одним из ключевых фак...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="организаторам-концерта-киркорова-пригрозили-крупным-штрафом20-21.html">Организаторам концерта Киркорова пригрозили крупным штрафом20:21</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="агент-рассказал-о-возможном-уходе-капитана--краснодара--в-клуб-апл23-06.html" class="article-title">Агент рассказал о возможном уходе капитана «Краснодара» в клуб АПЛ23:06</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Агент рассказал о возможном уходе капитана «Краснодара» в клуб АПЛ23:06 title: Обновление о возможном уходе капитана ФК "Краснодар" в клуб АПЛ23:06 Подзаголовок 1: Сенсационные новости из мира футбола...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="путешествия.html">Путешествия</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="в--вашингтоне--раскрыли-срок-окончания-карьеры-овечкиным-в-нхл20-20.html" class="article-title">В «Вашингтоне» раскрыли срок окончания карьеры Овечкиным в НХЛ20:20</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">В «Вашингтоне» раскрыли срок окончания карьеры Овечкиным в НХЛ20:20 🏒 Вашингтон рассекретил окончание карьеры Овечкиным в НХЛ 2020:20 Писатель: Ирина Кравцова Обновлено: 16.03.2020 В этом разделе мы р...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="среда-обитания.html">Среда обитания</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="известный-актер-избавится-от-роскошного-дома-в-сша19-54.html" class="article-title">Известный актер избавится от роскошного дома в США19:54</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Известный актер избавится от роскошного дома в США19:54 Title: Известный актер продает роскошный дом в США ========================== Содержание:  Краткий биографический обзор актера Роскошная резиден...</p>
+                
+            </div>
+        </div>
     
-        <li>
-            <a href="туристка-потеряла-паспорт-в-летевшем-в-китай-самолете-и-была-сразу-же-депортирована20-01.html">Туристка потеряла паспорт в летевшем в Китай самолете и была сразу же депортирована20:01</a>
-            <span class="date">(2025-05-29)</span>
-        </li>
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="интернет-и-сми.html" class="article-title">Интернет и СМИ</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Интернет и СМИ Title: Интернет и СМИ: Исследование современных медиа-трендов ============= Введение В наши дни цифровая эра преобразила способы доступа к информации, сделав их быстрыми и удобными. Инт...</p>
+                
+            </div>
+        </div>
     
-    </ul>
+        <div class="article-card">
+            
+            <img src="https://cdn.pixabay.com/photo/2016/11/18/16/38/science-technology-1837591_960_720.jpg" alt="Наука и техника" class="article-thumb" loading="lazy">
+            
+            <div class="article-content">
+                <a href="наука-и-техника.html" class="article-title">Наука и техника</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Наука и техника Titel: Современные тенденции в области науки и техники: Информационный обзор  Подзаголовки: 1. Развитие искусственного интеллекта (ИИ) и робототехники 2. Ускорение исследований с помощ...</p>
+                
+            </div>
+        </div>
+    
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="нло--размером-с-автомобиль--появился-над-аэропортом-крупного-города-и-попал-на-видео20-52.html" class="article-title">НЛО «размером с автомобиль» появился над аэропортом крупного города и попал на видео20:52</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">НЛО «размером с автомобиль» появился над аэропортом крупного города и попал на видео20:52 제목: 대도시 공항 위에 자동차 크기의 NLO 발견! 20:52 영상에서 확인됐습니다. 개요 지난 20:52, 한 대 도시의 공항 위에 자동차 크기의 NLO( Необыкновенные Летающ...</p>
+                
+            </div>
+        </div>
+    
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="организаторам-концерта-киркорова-пригрозили-крупным-штрафом20-21.html" class="article-title">Организаторам концерта Киркорова пригрозили крупным штрафом20:21</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Организаторам концерта Киркорова пригрозили крупным штрафом20:21 Title: Штраф в размере 20 миллионов рублей для организаторов концерта Киркорова: основные факты Введение Полная остановка музыки – это ...</p>
+                
+            </div>
+        </div>
+    
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="путешествия.html" class="article-title">Путешествия</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Путешествия Title: Путешествия: Открытие миров, обретение души ============= Введение Путешествие – это неотъемлемая часть нашего существования, отражающая нашу жажду открытия и познания нового. Каждо...</p>
+                
+            </div>
+        </div>
+    
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="среда-обитания.html" class="article-title">Среда обитания</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Среда обитания Title: Экологическая Среда Обитания: Краткий Анализ Факторов, Их Значение Для Нас и Рекомендации По Улучшению Введение Экологическая среда обитания - это условия, в которых живут, размн...</p>
+                
+            </div>
+        </div>
+    
+        <div class="article-card">
+            
+            <div class="article-content">
+                <a href="туристка-потеряла-паспорт-в-летевшем-в-китай-самолете-и-была-сразу-же-депортирована20-01.html" class="article-title">Туристка потеряла паспорт в летевшем в Китай самолете и была сразу же депортирована20:01</a>
+                <span class="date">2025-05-29</span>
+                
+                <p class="article-preview">Туристка потеряла паспорт в летевшем в Китай самолете и была сразу же депортирована20:01 itle: Депортация туристки из-за потери паспорта на борту китайского самолёта Подзаголовок: Какова процедура в с...</p>
+                
+            </div>
+        </div>
+    
+    </div>
     <div style="margin:2em 0;padding:1em;background:#f6f8fa;border:1px solid #eee;text-align:center;">
         <script>...</script>
         <p style="margin-top:1em;">Партнёрская рекомендация: <a href="https://www.amazon.com/dp/B00EXAMPLE?tag=your-tag-20" target="_blank" rel="nofollow">Купить полезную книгу на Amazon</a></p>
