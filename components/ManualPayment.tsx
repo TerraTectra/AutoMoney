@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 function createOrderId() {
   const date = new Date();
@@ -16,7 +16,11 @@ function envValue(value: string | undefined, fallback: string) {
 export default function ManualPayment() {
   const [buyerEmail, setBuyerEmail] = useState('');
   const [buyerName, setBuyerName] = useState('');
-  const [orderId] = useState(createOrderId);
+  const [orderId, setOrderId] = useState('');
+
+  useEffect(() => {
+    setOrderId(createOrderId());
+  }, []);
 
   const supportEmail = envValue(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, 'orders@example.com');
   const productName = envValue(process.env.NEXT_PUBLIC_PRODUCT_NAME, 'Полный аудит карточки товара');
@@ -30,7 +34,11 @@ export default function ManualPayment() {
     'Доступ выдаётся после подтверждения фактического поступления платежа.'
   );
 
+  const visibleOrderId = orderId || 'ORDER-ЗАГРУЖАЕТСЯ';
+
   const mailto = useMemo(() => {
+    if (!orderId) return '#';
+
     const subject = `[AutoMoney Order] ${orderId} — проверить оплату`;
     const body = [
       'Здравствуйте!',
@@ -53,7 +61,7 @@ export default function ManualPayment() {
     return `mailto:${supportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [buyerEmail, buyerName, orderId, price, productName, supportEmail]);
 
-  const canSend = buyerEmail.includes('@') && buyerEmail.includes('.');
+  const canSend = Boolean(orderId) && buyerEmail.includes('@') && buyerEmail.includes('.');
 
   return (
     <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -66,7 +74,7 @@ export default function ManualPayment() {
 
         <div className="mt-7 rounded-2xl bg-slate-950 p-5 text-white">
           <p className="text-sm font-semibold text-blue-200">Ваш номер заказа</p>
-          <p className="mt-2 break-all text-2xl font-black">{orderId}</p>
+          <p className="mt-2 break-all text-2xl font-black">{visibleOrderId}</p>
           <p className="mt-3 text-sm leading-6 text-slate-300">Укажите этот номер в комментарии к переводу.</p>
         </div>
 
@@ -118,7 +126,7 @@ export default function ManualPayment() {
             </div>
             <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">Комментарий</p>
-              <p className="mt-1 break-all text-base font-black text-blue-900">{orderId}</p>
+              <p className="mt-1 break-all text-base font-black text-blue-900">{visibleOrderId}</p>
             </div>
           </div>
 
@@ -129,7 +137,7 @@ export default function ManualPayment() {
           <h2 className="text-2xl font-black">После перевода</h2>
           <ol className="mt-4 space-y-3 text-sm leading-6 text-blue-50">
             <li>1. Переведите {price} ₽ по реквизитам выше.</li>
-            <li>2. Укажите комментарий: {orderId}</li>
+            <li>2. Укажите комментарий: {visibleOrderId}</li>
             <li>3. Нажмите кнопку ниже и отправьте готовое письмо.</li>
           </ol>
           <a
@@ -141,7 +149,7 @@ export default function ManualPayment() {
           >
             Я оплатил — отправить письмо
           </a>
-          {!canSend ? <p className="mt-3 text-xs text-blue-100">Введите email, чтобы активировать письмо заказа.</p> : null}
+          {!canSend ? <p className="mt-3 text-xs text-blue-100">Введите email и дождитесь номера заказа, чтобы активировать письмо.</p> : null}
         </div>
       </div>
     </section>
