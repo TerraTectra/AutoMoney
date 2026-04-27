@@ -45,3 +45,7 @@ NEXT_PUBLIC_PRODUCT_PRICE=490
 ```
 
 The MVP works without a payment gateway. Later, `manualTransfer` can be replaced with Robokassa, YooKassa, CloudPayments, or T-Kassa.
+
+## Build status
+
+The repository includes a GitHub Actions workflow that runs `npm install` and `npm run build` on pushes to `master` and pull requests targeting `master`.
